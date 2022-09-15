@@ -26,10 +26,10 @@
                                 </tr>
                                 @foreach ($incomeRes as $i => $result)
                                 <tr>
-                                    <td>{{$i+1}}</td>
+                                    <td>{{($i+1) + (Request::get('page') != "" ?(Request::get('page')-1) * 5 : 0) }}</td>
                                     <td>{{$result->levels}}</td>
                                     <td>{{$result->userid}}</td>
-                                    <td style="color: green"><b><i class="fa fa-rupee"></i> {{$result->day_bal}}</b></td>
+                                    <td style="color: green"><b> &#8358{{-- <i class="fafa-naira-sign"></i>--}} {{$result->day_bal}}</b></td>
                                     {{--  <td>{{$result->created_at}}</td>  --}}
                                     <td>{{$result->updated_at}}</td>
                                     {{--  <td><a href="{{'income'}}">Update</a></td>  --}}

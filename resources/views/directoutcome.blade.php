@@ -44,16 +44,16 @@
                                 
                                 @foreach ($outcomeList as $i => $ouser)
                                 <tr>
-                                    <td>{{$i+1}}</td>
+                                    <td>{{($i+1) + (Request::get('page') != "" ?(Request::get('page')-1) * 5 : 0) }}</td>
                                     <td><a href="{{'treeview'}}/{{$ouser->referralkey}}">{{$ouser->name}}</a></td>
                                     <td>{{$ouser->referralkey}}</td>
                                     {{--  <td><i class="fa fa-rupee"></i> {{$ouser->amount}}</td>  --}}
-                                    <td style="color: green"><b><i class="fa fa-rupee"></i> {{$ouser->amount}}</b></td>
+                                    <td style="color: green"><b> &#8358 {{-- <i class="fafa-naira-sign"></i>--}} {{$ouser->amount}}</b></td>
                                     <td>{{$ouser->created_at}}</td>
                                     {{--  <td><a href="#">View</a></td>  --}}
                                 </tr>
                                 @endforeach
-                                <tr><th colspan="3">SubTotal</th><th><i class="fa fa-rupee"></i> {{$comino}}</th></tr>
+                                <tr><th colspan="3">SubTotal</th><th><b> &#8358 {{-- <i class="fafa-naira-sign"></i>--}} {{$comino}} </b></th></tr>
                         </table>
                         {{--  <div>{{ if((!empty($userList)) $userList->links() }}</div>  --}}
                         

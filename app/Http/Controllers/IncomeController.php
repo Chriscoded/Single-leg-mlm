@@ -42,7 +42,7 @@ class IncomeController extends Controller
         foreach($decode as $res)
         // return $res->referralkey;
         
-        $lincome = DB::table('incomes')-> where('userid', $res->referralkey)->paginate(8);
+        $lincome = DB::table('incomes')-> where('userid', $res->referralkey)->paginate(5);
         // return $lincome;
         
         return view('income', ['incomeRes' => $lincome]);

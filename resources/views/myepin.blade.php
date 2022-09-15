@@ -23,7 +23,7 @@
                             </tr>
                             @foreach ($allepinList as $i => $pinlist)
                             <tr>
-                                <td>{{$i+1}}</td>
+                                <td>{{($i+1) + (Request::get('page') != "" ?(Request::get('page')-1) * 5 : 0) }}</td>
                                 <td>{{$pinlist->user_id}}</td>
                                 <td>{{$pinlist->pin}} </td>
                                 <td>{{$pinlist->status}} </td>

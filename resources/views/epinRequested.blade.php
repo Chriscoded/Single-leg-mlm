@@ -25,7 +25,7 @@
                                 </tr>
                                 @foreach ($empinList as $i => $pinres)
                                 <tr>
-                                    <td>{{$i+1}}</td>
+                                    <td>{{($i+1) + (Request::get('page') != "" ?(Request::get('page')-1) * 5 : 0) }}</td>
                                     <td>{{$pinres->userid}}</td>
                                     <td>{{$pinres->amount}} </td>
                                     <td>{{$pinres->status}} </td>

@@ -16,7 +16,7 @@ class EpinRequestedController extends Controller
         if(Auth::check()){
           
         //$epin = DB::table('epins')->where('user_id', session('email'))->paginate(5); //this code is also currect
-        $epin = Epin::where('user_id', session('email'))->where('status', 'Open')->paginate(8);
+        $epin = Epin::where('user_id', session('email'))->where('status', 'Open')->paginate(5);
 
         return view('myepin', ['allepinList' => $epin]);
     }
@@ -27,7 +27,7 @@ class EpinRequestedController extends Controller
     public function forAllusersRequest(){
     
         if(Auth::check()){
-        $lincome = Epinrequest::paginate(8);
+        $lincome = Epinrequest::paginate(5);
     
         return view('epinRequested', ['empinList' => $lincome]);
         }
@@ -46,10 +46,30 @@ class EpinRequestedController extends Controller
         //    echo $pinqty;die;
    
            $i=1;
-               while($i< $pinqty){
+               while($i<= $pinqty){
+
+                //lets make sure pin we are inserting is unique
+
+                    $pin = rand(0000000000,9999999999);
+
+                    $checkpin = DB::table('Epins')-> where('pin', $pin)->get();
+                    
+                    if($checkpin =="[]"){
+                        $data = ['referralkey' => $pin];
+                        //array_push($data,['referralkey' => $ref] );
+                    }
+                    else if($checkpin->referralkey != ($pin = rand(0000000000,9999999999))){ 
+                        $data = ['referralkey' => $pin];
+                        //array_push($data,['referralkey' => $ref1] );
+                    }
+                    else{
+                        $pin = rand(0000000000,9999999999);
+                        $data = ['referralkey' => $pin]; 
+                        //array_push($data,['referralkey' => $ref] );
+                    } 
                   Epin::create([
                        'user_id' => $user_id,
-                       'pin' => rand(0000000000,9999999999),
+                       'pin' => $pin,
                        'status' => $status
                      ]);
                     $i++;
@@ -58,7 +78,7 @@ class EpinRequestedController extends Controller
                
                DB::update('update epinrequests set status = ? where userid = ?',['Close',$user_id]);
    
-               return redirect('epinRequested')->withSuccess('Registration Success!');
+               return redirect('epinRequested')->withSuccess('Pin Sent Successfully!');
             }
 
             return redirect("/")->withSuccess('Login details are not valid');

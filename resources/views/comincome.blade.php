@@ -44,16 +44,16 @@
                                 
                                 @foreach ($comincomeList as $i => $user)
                                 <tr>
-                                    <td>{{$i+1}}</td>
+                                    <td>{{($i+1) + (Request::get('page') != "" ?(Request::get('page')-1) * 5 : 0) }}</td>
                                     <td><a href="{{'treeview'}}/{{$user->referralkey}}">{{$user->name}}</a></td>
                                     <td>{{$user->referralkey}}</td>
                                     {{--  <td><i class="fa fa-rupee"></i> {{$user->amount}}</td>  --}}
-                                    <td style="color: green"><b><i class="fa fa-rupee"></i> {{$user->amount}}</b></td>
+                                    <td style="color: green"><b> &#8358{{-- <i class="fafa-naira-sign"></i>--}} {{$user->amount}}</b></td>
                                     <td>{{$user->created_at}}</td>
                                     {{--  <td><a href="#">View</a></td>  --}}
                                 </tr>
                                 @endforeach
-                                <tr><th colspan="3">SubTotal</th><th><i class="fa fa-rupee"></i> {{$comino}} <br><small>After 30% Distribution</small></th></tr>
+                                <tr><th colspan="3">SubTotal</th><th><b> &#8358{{-- <i class="fafa-naira-sign"></i>--}} {{$comino}} <br><small>After 30% Distribution</small> </b></th></tr>
                         </table>
                         {{--  <div>{{ if((!empty($userList)) $userList->links() }}</div>  --}}
                     </div>

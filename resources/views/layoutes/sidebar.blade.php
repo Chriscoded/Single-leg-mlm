@@ -61,13 +61,17 @@
             </li>
             <li class="{{ Request::is('income') ? 'active' : '' }}">
                 <a href="../{{ 'income' }}">
-                    <i class="fa fa-rupee"></i>
+                    <span style="display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome; text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;font-size: 24px; transform: translate(0, 0); float:left; padding-right:25px; padding-left:5px">₦</span>
                     <p>My Level Income</p>
                 </a>
             </li>
             <li class="{{ Request::is('directincome') ? 'active' : '' }}">
                 <a href="../{{ 'directincome' }}">
-                    <i class="fa fa-rupee"></i>
+                    <span style="display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome; text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;font-size: 24px; transform: translate(0, 0); float:left; padding-right:25px; padding-left:5px">₦</span>
                     <p>My Direct Income</p>
                 </a>
             </li>
@@ -79,19 +83,25 @@
             </li>
             <li class="{{ Request::is('reports') ? 'active' : '' }}">
                 <a href="../{{'reports'}}">
-                    <i class="fa fa-rupee"></i>
+                    <span style="display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome; text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;font-size: 24px; transform: translate(0, 0); float:left; padding-right:25px; padding-left:5px">₦</span>
                     <p>Level Outcome </p>
                 </a>
             </li>
             <li class="{{ Request::is('directoutcome') ? 'active' : '' }}">
                 <a href="../{{'directoutcome'}}">
-                    <i class="fa fa-rupee"></i>
-                    <p>Direct Outcome </p>
+                    <span style="display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome; text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;font-size: 24px; transform: translate(0, 0); float:left; padding-right:25px; padding-left:5px">₦</span>
+                    <p> Direct Outcome </p>
                 </a>
             </li>
             <li class="{{ Request::is('comincome') ? 'active' : '' }}">
                 <a href="../{{'comincome'}}">
-                    <i class="fa fa-rupee"></i>
+                    <span style="display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome; text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;font-size: 24px; transform: translate(0, 0); float:left; padding-right:25px; padding-left:5px">₦</span>
                     <p>Total Company Income </p>
                 </a>
             </li>

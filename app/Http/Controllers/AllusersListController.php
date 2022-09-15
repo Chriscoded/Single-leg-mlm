@@ -25,6 +25,7 @@ class AllusersListController extends Controller
 
     public function allUsersListPage() {
         if(Auth::check()){
+            //select user that has no foreign id and its child users
         $itemsres = User::whereNull('forenid')
             ->with('childItems')
             ->get();

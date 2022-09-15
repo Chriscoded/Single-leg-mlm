@@ -41,7 +41,7 @@ class ReportsController extends Controller
   ->whereBetween('incomes.created_at', [$dateS
   ->format('Y-m-d')." 00:00:00", $dateE
   ->format('Y-m-d')." 23:59:59"])
-  ->get(['users.*', 'incomes.day_bal']);
+  ->get(['users.*', 'incomes.*']);
   // return $userList;
   return view('reports', ['userList' => $userList, 'comino'=>$comino]); 
     }

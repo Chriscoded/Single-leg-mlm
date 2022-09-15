@@ -21,7 +21,7 @@
             </ul>
         </nav>
         <div class="copyright pull-right">
-            © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="">Eishwar Patley</a>
+            © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="">Chris</a>
         </div>
     </div>
 </footer>

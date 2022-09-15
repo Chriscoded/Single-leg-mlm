@@ -5,6 +5,28 @@
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-4">
+                @if(Session::has('success'))
+                    <div style="position: relative;padding: 1rem 1rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: 0.25rem; color: #0f5132;background-color: #d1e7dd;border-color: #badbcc;text-align: center !important;">             
+                    {{ session('success') }}
+                    </div>
+                @endif
+                @if(Session::has('error'))
+                    <div style="position: relative;padding: 1rem 1rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: 0.25rem; color: #842029;
+                    background-color: #f8d7da;
+                    border-color: #f5c2c7;text-align: center !important;">             
+                    {{ session('error') }}
+                    </div>
+                @endif
+                
+                @if ($errors->any())
+                <div style="position: relative;padding: 1rem 1rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: 0.25rem; color: #842029;background-color: #f8d7da;border-color: #f5c2c7;text-align: center !important;">
+                  @foreach ($errors->all() as $error )
+                      <li>
+                        {{ $error }}
+                      </li>
+                  @endforeach
+                </div>
+              @endif
                 <div class="card">
                     <h3 class="card-header text-center">User Registeration </h3>
                     <div class="card-body">
@@ -19,11 +41,11 @@
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="hidden" placeholder="referralkey" id="referralkey" class="form-control" name="referralkey"
-                                    value="{{mt_rand(000000,999999)}}">
+                                {{-- <input type="hidden" placeholder="referralkey" id="referralkey" class="form-control" name="referralkey"
+                                    value="{{mt_rand(000000,999999)}}"> --}}
                                 <input type="text" placeholder="Sponserid" id="sponserid" class="form-control" name="sponserid"
                                     required autofocus>
-                                @if ($errors->has('sponserID'))
+                                @if ($errors->has('sponserid'))
                                 <span class="text-danger">{{ $errors->first('sponserid') }}</span>
                                 @endif
                             </div>
@@ -44,7 +66,7 @@
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Enter Epin" id="epin" class="form-control" name="epin"
                                     required autofocus>
-                                @if ($errors->has('amount'))
+                                @if ($errors->has('epin'))
                                 <span class="text-danger">{{ $errors->first('epin') }}</span>
                                 @endif
                             </div>
